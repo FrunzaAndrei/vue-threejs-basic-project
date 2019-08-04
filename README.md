@@ -27,3 +27,9 @@ npm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+## My describe
+-this is a very basic example of an app made with vue and three.js
+-this is my first project in vue 
+-to make it run , open project folder and write "npm run serve" in command prompt asociated with chat's folder 
+
