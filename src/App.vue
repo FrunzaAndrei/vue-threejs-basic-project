@@ -1,31 +1,34 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+    <md-toolbar class="md-primary" md-elevation="1">
+      <h3 class="md-title">GAME</h3>
+      <span style="width:10px"></span>
+      <span style="flex: 1"></span>
+      <span style="flex: 1"></span>
+      <div></div>
+    </md-toolbar>
+        <home/>
   </div>
 </template>
 
+
+<script>
+import home from './views/Home'
+export default {
+  components:{
+    home
+  }
+}
+</script>
+
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+#app{
+  text-align:center;
 }
-#nav {
-  padding: 30px;
+#buttonHome{
+   margin-right:8px;
 }
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
+#buttonabout{
+  margin-left:8px;
 }
 </style>
