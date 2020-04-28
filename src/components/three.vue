@@ -1,14 +1,13 @@
 <template>
-    <div>
-        <Config v-on:geometryChanged="changeGeo" />
-        <div id="webGL"></div>
-        </div>
+  <div>
+    <Config v-on:geometryChanged="changeGeo" />
+    <div id="webGL"></div>
+  </div>
 </template>
 
 <script>
 import Config from "./configurator";
 import * as THREE from "three";
-
 
 export default {
   name: "three",
@@ -27,7 +26,12 @@ export default {
         Cube: new THREE.BoxGeometry(1, 1, 1),
         Sphere: new THREE.SphereGeometry(1, 32, 32),
         Square: new THREE.PlaneGeometry(2, 2, 32),
-        Circle: new THREE.CircleGeometry(1, 32)
+        Circle: new THREE.CircleGeometry(1, 32),
+        Octahedron: new THREE.OctahedronGeometry(1, 0),
+        TorusKnot: new THREE.TorusKnotBufferGeometry(1, 0.3, 20, 10),
+        Ring: new THREE.RingGeometry(1, 2, 10),
+        Cone : new THREE.ConeBufferGeometry( 1, 3, 8 ),
+        Cylinder: new THREE.CylinderBufferGeometry( 1, 1, 3, 8 )
       }
     };
   },
@@ -54,11 +58,10 @@ export default {
     },
     animate() {
       requestAnimationFrame(this.animate);
-    if(this.mesh) {
-      this.mesh.rotation.x += 0.01;
-      this.mesh.rotation.y += 0.01;
-    }
-      
+      if (this.mesh) {
+        this.mesh.rotation.x += 0.01;
+        this.mesh.rotation.y += 0.01;
+      }
 
       this.renderer.render(this.scene, this.camera);
     },
@@ -68,16 +71,15 @@ export default {
       this.mesh.geometry.dispose();
       this.mesh.material.dispose();
       this.mesh = undefined;
-   
     },
-    changeGeo(e){
-      if(this.mesh) this.removeShape();
+    changeGeo(e) {
+      if (this.mesh) this.removeShape();
       this.threeGeometry = e;
       let geometry = this.geometryVariable[e];
       let material = new THREE.MeshNormalMaterial();
       this.mesh = new THREE.Mesh(geometry, material);
-      this.scene.add(this.mesh)
-      }
+      this.scene.add(this.mesh);
+    }
   },
   mounted() {
     this.init();
@@ -87,9 +89,8 @@ export default {
 
 <style>
 #webGL {
-  width: 100vw;
+  width: 100%;
   height: 100vh;
   overflow: hidden;
 }
-
 </style>
