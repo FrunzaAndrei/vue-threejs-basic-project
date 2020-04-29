@@ -1,19 +1,18 @@
 <template>
   <div id="app">
     <md-toolbar class="md-primary" md-elevation="1">
-      <h3 class="md-title">GAME</h3>
+      <h3 class="md-title">Render Shape App</h3>
     </md-toolbar>
     <home />
   </div>
 </template>
 
-
 <script>
 import home from "./views/Home";
 export default {
   components: {
-    home
-  }
+    home,
+  },
 };
 </script>
 
